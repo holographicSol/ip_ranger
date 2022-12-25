@@ -12,12 +12,17 @@ Notes on performance experimentation when initializing enumerated/pre-enumerated
     Pre-Enumeration stored as pythonic list: Slowest results
     Pre-Enumeration stored as list in text file: Fastest.
 
+    Different systems may vary results.
+
 """
 
 
 import os.path
 import time
 import module_ip_ranger
+t0 = time.time()
+import module_0_0_0_0_to_0_255_255_255_pythonic_list
+print('import module_0_0_0_0_to_0_255_255_255_pythonic_list time:', time.time() - t0)
 
 f = {'./module_0_0_0_0_to_0_255_255_255.txt': module_ip_ranger.compile_0_0_0_0_to_0_255_255_255,
      './module_10_0_0_0_to_10_255_255_255.txt': module_ip_ranger.compile_10_0_0_0_to_10_255_255_255,
@@ -48,24 +53,39 @@ def benchmark_enum(data_enum=[]):
     print('enumeration time:', time.time() - t0)
 
 
-def benchmark_read(data_enum=[]):
+def benchmark_read(file=str):
     t0 = time.time()
     try:
-        print('items: ' + str(len(data_enum(disk=True))))
+        l = []
+        with open(file, 'r') as fo:
+            for line in fo:
+                line = line.strip()
+                l.append(line)
+        print('items: ' + str(len(l)))
         print('read time:', time.time() - t0)
     except:
         print('file: not not yet exists.')
         pass
 
 
+def benchmark_pythonic_list(data_enum=[], t0=()):
+    print('items: ' + str(len(data_enum())))
+    print('pythonic list time:', time.time() - t0)
+
+
 def benchmark_all():
+    i = 0
     for k in f:
         if os.path.exists(k):
             seperator()
             print('benchmarking:', f[k])
             data_enum = f[k]
             benchmark_enum(data_enum=data_enum)
-            benchmark_read(data_enum=data_enum)
+            benchmark_read(file=k)
+            if i == 0:
+                t0 = time.time()
+                benchmark_pythonic_list(data_enum=module_0_0_0_0_to_0_255_255_255_pythonic_list.reserved_ipv4, t0=t0)
+        i += 1
 
 
 benchmark_all()
