@@ -9,8 +9,8 @@ Pre-Enumerated Address Ranges:
 
 Notes on performance experimentation when initializing enumerated/pre-enumerated address ranges:
     Enumeration: Medium performance
-    Pre-Enumeration stored as pythonic list: Slowest results (un-compiled, currently testing compiled)
-    Pre-Enumeration stored as list in text file: Fastest.
+    Pre-Enumeration stored as pythonic list: Slowest results un-compiled. Fastest if compiled
+    Pre-Enumeration stored as list in text file: Fastest un-compiled.
 
     Different systems may vary results.
 
