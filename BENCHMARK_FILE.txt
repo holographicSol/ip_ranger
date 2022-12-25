@@ -1,0 +1,45 @@
+--------------------------------------------------
+benchmarking: <function compile_0_0_0_0_to_0_255_255_255 at 0x000002A9912712D0>
+items: 16777216
+enumeration time: 8.006999731063843
+items: 16777216
+read time: 5.815999507904053
+--------------------------------------------------
+benchmarking: <function compile_10_0_0_0_to_10_255_255_255 at 0x000002A9912A2560>
+items: 16777216
+enumeration time: 7.341996908187866
+items: 16777216
+read time: 5.789522647857666
+--------------------------------------------------
+benchmarking: <function compile_100_64_0_0_to_100_127_255_255 at 0x000002A9912A25F0>
+items: 4194304
+enumeration time: 1.779998540878296
+items: 4194304
+read time: 1.4570012092590332
+--------------------------------------------------
+benchmarking: <function compile_192_88_99_0_to_192_88_99_255 at 0x000002A9912A2950>
+items: 256
+enumeration time: 0.0
+items: 256
+read time: 0.0
+--------------------------------------------------
+benchmarking: <function compile_192_168_0_0_to_192_168_255_255 at 0x000002A9912A29E0>
+items: 65536
+enumeration time: 0.03400063514709473
+items: 39970
+read time: 0.014000177383422852
+--------------------------------------------------
+benchmarking: <function compile_233_252_0_0_to_233_252_0_255 at 0x000002A9912A2CB0>
+items: 256
+enumeration time: 0.0
+items: 0
+read time: 0.0010008811950683594
+--------------------------------------------------
+benchmarking: <function compile_255_255_255_255 at 0x000002A9912A2DD0>
+items: 15
+enumeration time: 0.0
+items: 1
+read time: 0.0
+
+SUMMARY:
+Reading pre-enumerated list into memory is typically faster than enumeration while pythonic list as pre-enumerated address ranges proved to be the slowest ( not expected and not shown here).
