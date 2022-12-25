@@ -69,7 +69,7 @@ def benchmark_read(file=str):
 
 
 def benchmark_pythonic_list(data_enum=[], t0=()):
-    print('items: ' + str(len(data_enum())))
+    print('items: ' + str(len(data_enum)))
     print('pythonic list time:', time.time() - t0)
 
 
