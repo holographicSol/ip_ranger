@@ -76,7 +76,7 @@ def benchmark_read(data_enum=[]):
         print('items: ' + str(len(data_enum(disk=True))))
         print('enumeration time:', time.time() - t0)
     except:
-        print('file: not not yet exists.')
+        print('file: not yet exists.')
         pass
 
 
