@@ -44,4 +44,4 @@ read time: 0.0
 SUMMARY:
 Reading pre-enumerated list into memory is typically faster than enumeration while pythonic list as pre-enumerated address ranges proved to be the slowest ( not expected and not shown here).
 Note: For a program compiled with the resulting modules from ip_ranger, the import time of module_ip_range_'x' is about 1 second on my system,
-while uncompiled import is 3+ minutes.
+while uncompiled import is 3+ minutes. (For the larger pythonic lists).
