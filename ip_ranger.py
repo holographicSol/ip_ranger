@@ -329,23 +329,23 @@ while True:
     print(' [1]         [VALIDATOR]')
     print(' [2S]  [2P]  [CREATE ALL]')
     print('')
-    print(' [3S]  [3P]  [CREATE SPECIFIC RANGE] [0.0.0.0]         [0.255.255.255]   [16777216]  [P] [331 MB]')
-    print(' [4S]  [4P]  [CREATE SPECIFIC RANGE] [10.0.0.0]        [10.255.255.255]  [16777216]  [P] [347 MB]')
-    print(' [5S]  [5P]  [CREATE SPECIFIC RANGE] [100.64.0.0]      [100.127.255.255] [4194304]   [P] [90.3 MB]')
-    print(' [6S]  [6P]  [CREATE SPECIFIC RANGE] [127.0.0.0]       [127.255.255.255] [16777216]  [P] [363 MB]')
-    print(' [7S]  [7P]  [CREATE SPECIFIC RANGE] [169.254.0.0]     [169.254.255.255] [65536]     [P] [1.44 MB]')
-    print(' [8S]  [8P]  [CREATE SPECIFIC RANGE] [172.16.0.0]      [172.31.255.255]  [1048576]   [P] [22.1MB]')
-    print(' [9S]  [9P]  [CREATE SPECIFIC RANGE] [192.0.0.0]       [192.0.0.255]     [256]       [P] [5 KB]')
-    print(' [10S] [10P] [CREATE SPECIFIC RANGE] [192.0.2.0]       [192.0.2.255]     [256]       [P] [5 KB]')
-    print(' [11S] [11P] [CREATE SPECIFIC RANGE] [192.88.99.0]     [192.88.99.255]   [256]       [P] [6 KB]')
-    print(' [12S] [12P] [CREATE SPECIFIC RANGE] [192.168.0.0]     [192.168.255.255] [65536]     [P] [1.44 MB]')
-    print(' [13S] [13P] [CREATE SPECIFIC RANGE] [198.18.0.0]      [198.19.255.255]  [131072]    [P] [2.76 MB]')
-    print(' [14S] [14P] [CREATE SPECIFIC RANGE] [198.51.100.0]    [198.51.100.255]  [256]       [P] [8 KB]')
-    print(' [15S] [15P] [CREATE SPECIFIC RANGE] [203.0.113.0]     [203.0.113.255]   [256]       [P] [8 KB]')
-    print(' [16S] [16P] [CREATE SPECIFIC RANGE] [224.0.0.0]       [239.255.255.255] [268435456] [P] [...]')
-    print(' [17S] [17P] [CREATE SPECIFIC RANGE] [233.252.0.0]     [233.252.0.255]   [256]       [P] [8 KB]')
-    print(' [18S] [18P] [CREATE SPECIFIC RANGE] [240.0.0.0]       [255.255.255.254] [268435455] [P] [...]')
-    print(' [19S] [19P] [CREATE SPECIFIC RANGE] [255.255.255.255]                   [1]         [P] [1 KB]')
+    print(' [3S]  [3P]  [CREATE SPECIFIC RANGE] [0.0.0.0]         [0.255.255.255]   [16777216]  [S] [219 MB]  [P] [331 MB]')
+    print(' [4S]  [4P]  [CREATE SPECIFIC RANGE] [10.0.0.0]        [10.255.255.255]  [16777216]  [S] [235 MB]  [P] [347 MB]')
+    print(' [5S]  [5P]  [CREATE SPECIFIC RANGE] [100.64.0.0]      [100.127.255.255] [4194304]   [S] [62.3 MB] [P] [90.3 MB]')
+    print(' [6S]  [6P]  [CREATE SPECIFIC RANGE] [127.0.0.0]       [127.255.255.255] [16777216]  [S] [251 MB]  [P] [363 MB]')
+    print(' [7S]  [7P]  [CREATE SPECIFIC RANGE] [169.254.0.0]     [169.254.255.255] [65536]     [S] [1.1 MB]  [P] [1.44 MB]')
+    print(' [8S]  [8P]  [CREATE SPECIFIC RANGE] [172.16.0.0]      [172.31.255.255]  [1048576]   [S] [15.1 MB] [P] [22.1MB]')
+    print(' [9S]  [9P]  [CREATE SPECIFIC RANGE] [192.0.0.0]       [192.0.0.255]     [256]       [S] [4 KB]    [P] [5 KB]')
+    print(' [10S] [10P] [CREATE SPECIFIC RANGE] [192.0.2.0]       [192.0.2.255]     [256]       [S] [4 KB]    [P] [5 KB]')
+    print(' [11S] [11P] [CREATE SPECIFIC RANGE] [192.88.99.0]     [192.88.99.255]   [256]       [S] [4 KB]    [P] [6 KB]')
+    print(' [12S] [12P] [CREATE SPECIFIC RANGE] [192.168.0.0]     [192.168.255.255] [65536]     [S] [1.01 MB] [P] [1.44 MB]')
+    print(' [13S] [13P] [CREATE SPECIFIC RANGE] [198.18.0.0]      [198.19.255.255]  [131072]    [S] [1.89 MB] [P] [2.76 MB]')
+    print(' [14S] [14P] [CREATE SPECIFIC RANGE] [198.51.100.0]    [198.51.100.255]  [256]       [S] [4 kB]    [P] [8 KB]')
+    print(' [15S] [15P] [CREATE SPECIFIC RANGE] [203.0.113.0]     [203.0.113.255]   [256]       [S] [4 kB]    [P] [8 KB]')
+    print(' [16S] [16P] [CREATE SPECIFIC RANGE] [224.0.0.0]       [239.255.255.255] [268435456] [S] [...]     [P] [...]')
+    print(' [17S] [17P] [CREATE SPECIFIC RANGE] [233.252.0.0]     [233.252.0.255]   [256]       [S] [4 kB]    [P] [8 KB]')
+    print(' [18S] [18P] [CREATE SPECIFIC RANGE] [240.0.0.0]       [255.255.255.254] [268435455] [S] [...]     [P] [...]')
+    print(' [19S] [19P] [CREATE SPECIFIC RANGE] [255.255.255.255]                   [1]         [S] [1 kB]    [P] [1 KB]')
     print('')
     print(' [Q]  QUIT')
     print('')
@@ -361,10 +361,13 @@ while True:
 
     elif user_input == "1":
         validate()
+
     elif user_input == "2S":
         compile_all_reserved_ip_ranges()
+
     elif user_input == "2P":
         compile_all_reserved_ip_ranges_pythonic()
+
     elif user_input == "3S":
         ip_ranges_compiler(file='./modules-standard/module_0_0_0_0_to_0_255_255_255.txt',
                            data_enum=f['./modules-standard/module_0_0_0_0_to_0_255_255_255.txt']())
