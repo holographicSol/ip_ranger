@@ -129,6 +129,10 @@ pythonic list time: 0.000993490219116211
     [Result]
         * Extremely fast ranging from program x (benchmark_ip_ranger.exe) startup.
         * 6 Second startup time for all current ranges to be put in memory and ready to use.
+	* Saved 30+ Seconds.
+	* More time may be saved once I have used ip_ranger.exe to create IP range IP Multicast and IP range Future Range).
+		(Combined remaining two modules is over half a billion addresses. So there may be much more time that can be saved
+		on a program x startup).
     [Conclusion]
         The experiment was worth it. Very worth it.
 
