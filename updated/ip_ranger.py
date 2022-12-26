@@ -219,6 +219,7 @@ def compile_all_reserved_ip_ranges_pythonic():
 
 def validator(file=str, data_enum=[]):
     module_data = []
+    failed_data = []
     if os.path.exists(file):
         print('[VALIDATION] File exists: PASSED')
         with open(file, 'r') as fo:
@@ -226,35 +227,67 @@ def validator(file=str, data_enum=[]):
                 line = line.strip()
                 module_data.append(line)
         fo.close()
-        if len(data_enum) == len(module_data):
-            print('[VALIDATION] List length check: PASSED')
-            validation = []
-            i = 0
-            for _ in data_enum:
-                if _ == module_data[i]:
-                    validation.append(True)
+
+        print('[ENUMERATING] This may take a moment...')
+        data_enum = data_enum()
+        print('[ENUMERATING] Completed.')
+
+        validation = []
+        if len(module_data) > 1:
+            if len(data_enum) == len(module_data):
+                print('[VALIDATION] List length check: PASSED')
+
+                i = 0
+                for _ in data_enum:
+                    if _ == module_data[i]:
+                        validation.append(True)
+                    else:
+                        validation.append(False)
+                    i += 1
+
+                if False in validation:
+                    print('[VALIDATION] List comparison check: FAILED')
+                    print('[VALIDATION] FAILED')
+                    failed_data.append(file)
                 else:
-                    validation.append(False)
-                i += 1
+                    print('[VALIDATION] List comparison check: PASSED')
+                    print('[VALIDATION] PASSED')
+            else:
+                print('[VALIDATION] List length check: FAILED')
+                print('[VALIDATION] FAILED')
+                failed_data.append(file)
+
+        elif len(module_data) == 1:
+            print('[VALIDATION] List length check: PASSED')
+
+            if data_enum == module_data[0]:
+                validation.append(True)
+            else:
+                validation.append(False)
+
             if False in validation:
                 print('[VALIDATION] List comparison check: FAILED')
                 print('[VALIDATION] FAILED')
-                print('[SUMMARY] Re-write: necessary')
+                failed_data.append(file)
             else:
                 print('[VALIDATION] List comparison check: PASSED')
                 print('[VALIDATION] PASSED')
-                print('[SUMMARY] Re-write: unnecessary')
+
         else:
             print('[VALIDATION] List length check: FAILED')
             print('[VALIDATION] FAILED')
-            print('[SUMMARY] Re-write: necessary')
+            failed_data.append(file)
+
     else:
         print('[VALIDATION] File exists: FAILED')
         print('[VALIDATION] FAILED')
-        print('[SUMMARY] Re-write: necessary')
+        failed_data.append(file)
+
+    return failed_data
 
 
 def validate():
+    failed_data = []
     for k in f:
         print('')
         print('-' * 100)
@@ -262,10 +295,23 @@ def validate():
         print('[MODE] Standard List')
         print('')
         print('[VALIDATING] Attempting to validate:', k, 'with associated function:', f[k])
-        print('[ENUMERATING] This may take a moment...')
-        data_enum = f[k]()
-        print('[ENUMERATING] Completed.')
-        validator(file=k, data_enum=data_enum)
+        data_enum = f[k]
+        failed_data.append(validator(file=k, data_enum=data_enum))
+
+    print('-' * 100)
+    print('[SUMMARY] The following files did not pass the validation test.')
+    print('          Either the files did not exist or the file(s) contents was incorrect.')
+    print('')
+    print('Consider re-writing the following files:')
+    print('')
+    count = 0
+    for _ in failed_data:
+        if _:
+            print('   ', _)
+            count += 1
+    print('')
+    print('[RESULTS] ' + str(count) + ' files should be written/re-written.')
+    print('')
 
 
 while True:
@@ -276,26 +322,30 @@ while True:
     print(' [DESCRIPTION]')
     print('     This program intends to create files of IPv4 ranges that can be used for speed ranging.')
     print('')
-    print(' [1] VALIDATOR  attempts to verify IPv4 range files')
-    print(' [2] CREATOR    creates all currently supported IPv4 range files  [2P]  (Python List)')
+    print(' [KEY]')
+    print('       [S] [STANDARD LIST]')
+    print('       [P] [PYTHONIC LIST]')
     print('')
-    print(' [3]  CREATE SPECIFIC RANGE: 0.0.0.0       to  0.255.255.255      [3P]  (Python List)')
-    print(' [4]  CREATE SPECIFIC RANGE: 10.0.0.0      to  10.255.255.255     [4P]  (Python List)')
-    print(' [5]  CREATE SPECIFIC RANGE: 100.64.0.0    to  100.127.255.255    [5P]  (Python List)')
-    print(' [6]  CREATE SPECIFIC RANGE: 127.0.0.0     to  127.255.255.255    [6P]  (Python List)')
-    print(' [7]  CREATE SPECIFIC RANGE: 169.254.0.0   to  169.254.255.255    [7P]  (Python List)')
-    print(' [8]  CREATE SPECIFIC RANGE: 172.16.0.0    to  172.31.255.255     [8P]  (Python List)')
-    print(' [9]  CREATE SPECIFIC RANGE: 192.0.0.0     to  192.0.0.255        [9P]  (Python List)')
-    print(' [10] CREATE SPECIFIC RANGE: 192.0.2.0     to  192.0.2.255        [10P] (Python List)')
-    print(' [11] CREATE SPECIFIC RANGE: 192.88.99.0   to  192.88.99.255      [11P] (Python List)')
-    print(' [12] CREATE SPECIFIC RANGE: 192.168.0.0   to  192.168.255.255    [12P] (Python List)')
-    print(' [13] CREATE SPECIFIC RANGE: 198.18.0.0    to  198.19.255.255     [13P] (Python List)')
-    print(' [14] CREATE SPECIFIC RANGE: 198.51.100.0  to  198.51.100.255     [14P] (Python List)')
-    print(' [15] CREATE SPECIFIC RANGE: 203.0.113.0   to  203.0.113.255      [15P] (Python List)')
-    print(' [16] CREATE SPECIFIC RANGE: 224.0.0.0     to  239.255.255.255    [16P] (Python List)')
-    print(' [17] CREATE SPECIFIC RANGE: 233.252.0.0   to  233.252.0.255      [17P] (Python List)')
-    print(' [18] CREATE SPECIFIC RANGE: 240.0.0.0     to  255.255.255.254    [18P] (Python List)')
-    print(' [19] CREATE SPECIFIC RANGE: 255.255.255.255                      [19P] (Python List)')
+    print(' [1]         [VALIDATOR]')
+    print(' [2S]  [2P]  [CREATE ALL]')
+    print('')
+    print(' [3S]  [3P]  [CREATE SPECIFIC RANGE] [0.0.0.0]         [0.255.255.255]   [16777216]  [P] [331 MB]')
+    print(' [4S]  [4P]  [CREATE SPECIFIC RANGE] [10.0.0.0]        [10.255.255.255]  [16777216]  [P] [347 MB]')
+    print(' [5S]  [5P]  [CREATE SPECIFIC RANGE] [100.64.0.0]      [100.127.255.255] [4194304]   [P] [90.3 MB]')
+    print(' [6S]  [6P]  [CREATE SPECIFIC RANGE] [127.0.0.0]       [127.255.255.255] [16777216]  [P] [363 MB]')
+    print(' [7S]  [7P]  [CREATE SPECIFIC RANGE] [169.254.0.0]     [169.254.255.255] [65536]     [P] [1.44 MB]')
+    print(' [8S]  [8P]  [CREATE SPECIFIC RANGE] [172.16.0.0]      [172.31.255.255]  [1048576]   [P] [22.1MB]')
+    print(' [9S]  [9P]  [CREATE SPECIFIC RANGE] [192.0.0.0]       [192.0.0.255]     [256]       [P] [5 KB]')
+    print(' [10S] [10P] [CREATE SPECIFIC RANGE] [192.0.2.0]       [192.0.2.255]     [256]       [P] [5 KB]')
+    print(' [11S] [11P] [CREATE SPECIFIC RANGE] [192.88.99.0]     [192.88.99.255]   [256]       [P] [6 KB]')
+    print(' [12S] [12P] [CREATE SPECIFIC RANGE] [192.168.0.0]     [192.168.255.255] [65536]     [P] [1.44 MB]')
+    print(' [13S] [13P] [CREATE SPECIFIC RANGE] [198.18.0.0]      [198.19.255.255]  [131072]    [P] [2.76 MB]')
+    print(' [14S] [14P] [CREATE SPECIFIC RANGE] [198.51.100.0]    [198.51.100.255]  [256]       [P] [8 KB]')
+    print(' [15S] [15P] [CREATE SPECIFIC RANGE] [203.0.113.0]     [203.0.113.255]   [256]       [P] [8 KB]')
+    print(' [16S] [16P] [CREATE SPECIFIC RANGE] [224.0.0.0]       [239.255.255.255] [268435456] [P] [...]')
+    print(' [17S] [17P] [CREATE SPECIFIC RANGE] [233.252.0.0]     [233.252.0.255]   [256]       [P] [8 KB]')
+    print(' [18S] [18P] [CREATE SPECIFIC RANGE] [240.0.0.0]       [255.255.255.254] [268435455] [P] [...]')
+    print(' [19S] [19P] [CREATE SPECIFIC RANGE] [255.255.255.255]                   [1]         [P] [1 KB]')
     print('')
     print(' [Q]  QUIT')
     print('')
@@ -311,59 +361,59 @@ while True:
 
     elif user_input == "1":
         validate()
-    elif user_input == "2":
+    elif user_input == "2S":
         compile_all_reserved_ip_ranges()
     elif user_input == "2P":
         compile_all_reserved_ip_ranges_pythonic()
-    elif user_input == "3":
+    elif user_input == "3S":
         ip_ranges_compiler(file='./modules-standard/module_0_0_0_0_to_0_255_255_255.txt',
                            data_enum=f['./modules-standard/module_0_0_0_0_to_0_255_255_255.txt']())
-    elif user_input == "4":
+    elif user_input == "4S":
         ip_ranges_compiler(file='./modules-standard/module_10_0_0_0_to_10_255_255_255.txt',
                            data_enum=f['./modules-standard/module_10_0_0_0_to_10_255_255_255.txt']())
-    elif user_input == "5":
+    elif user_input == "5S":
         ip_ranges_compiler(file='./modules-standard/module_100_64_0_0_to_100_127_255_255.txt',
                            data_enum=f['./modules-standard/module_100_64_0_0_to_100_127_255_255.txt']())
-    elif user_input == "6":
+    elif user_input == "6S":
         ip_ranges_compiler(file='./modules-standard/module_127_0_0_0_to_127_255_255_255.txt',
                            data_enum=f['./modules-standard/module_127_0_0_0_to_127_255_255_255.txt']())
-    elif user_input == "7":
+    elif user_input == "7S":
         ip_ranges_compiler(file='./modules-standard/module_169_254_0_0_to_169_254_255_255.txt',
                            data_enum=f['./modules-standard/module_169_254_0_0_to_169_254_255_255.txt']())
-    elif user_input == "8":
+    elif user_input == "8S":
         ip_ranges_compiler(file='./modules-standard/module_172_16_0_0_to_172_31_255_255.txt',
                            data_enum=f['./modules-standard/module_172_16_0_0_to_172_31_255_255.txt']())
-    elif user_input == "9":
+    elif user_input == "9S":
         ip_ranges_compiler(file='./modules-standard/module_192_0_0_0_to_192_0_0_255.txt',
                            data_enum=f['./modules-standard/module_192_0_0_0_to_192_0_0_255.txt']())
-    elif user_input == "10":
+    elif user_input == "10S":
         ip_ranges_compiler(file='./modules-standard/module_192_0_2_0_to_192_0_2_255.txt',
                            data_enum=f['./modules-standard/module_192_0_2_0_to_192_0_2_255.txt']())
-    elif user_input == "11":
+    elif user_input == "11S":
         ip_ranges_compiler(file='./modules-standard/module_192_88_99_0_to_192_88_99_255.txt',
                            data_enum=f['./modules-standard/module_192_88_99_0_to_192_88_99_255.txt']())
-    elif user_input == "12":
+    elif user_input == "12S":
         ip_ranges_compiler(file='./modules-standard/module_192_168_0_0_to_192_168_255_255.txt',
                            data_enum=f['./modules-standard/module_192_168_0_0_to_192_168_255_255.txt']())
-    elif user_input == "13":
+    elif user_input == "13S":
         ip_ranges_compiler(file='./modules-standard/module_198_18_0_0_to_198_19_255_255.txt',
                            data_enum=f['./modules-standard/module_198_18_0_0_to_198_19_255_255.txt']())
-    elif user_input == "14":
+    elif user_input == "14S":
         ip_ranges_compiler(file='./modules-standard/module_198_51_100_0_to_198_51_100_255.txt',
                            data_enum=f['./modules-standard/module_198_51_100_0_to_198_51_100_255.txt']())
     elif user_input == "15":
         ip_ranges_compiler(file='./modules-standard/module_203_0_113_0_to_203_0_113_255.txt',
                            data_enum=f['./modules-standard/module_203_0_113_0_to_203_0_113_255.txt']())
-    elif user_input == "16":
+    elif user_input == "16S":
         ip_ranges_compiler(file='./modules-standard/module_224_0_0_0_to_239_255_255_255.txt',
                            data_enum=f['./modules-standard/module_224_0_0_0_to_239_255_255_255.txt']())
-    elif user_input == "17":
+    elif user_input == "17S":
         ip_ranges_compiler(file='./modules-standard/module_233_252_0_0_to_233_252_0_255.txt',
                            data_enum=f['./modules-standard/module_233_252_0_0_to_233_252_0_255.txt']())
-    elif user_input == "18":
+    elif user_input == "18S":
         ip_ranges_compiler(file='./modules-standard/module_240_0_0_0_to_255_255_255_254.txt',
                            data_enum=f['./modules-standard/module_240_0_0_0_to_255_255_255_254.txt']())
-    elif user_input == "19":
+    elif user_input == "19S":
         ip_ranges_compiler(file='./modules-standard/module_255_255_255_255.txt', data_enum=f['./modules-standard/module_255_255_255_255.txt'](), loop=False)
 
     elif user_input == "3P":
@@ -382,7 +432,7 @@ while True:
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_169_254_0_0_to_169_254_255_255.py',
                            data_enum=fp['./modules-pythonic/module_169_254_0_0_to_169_254_255_255.py']())
     elif user_input == "8P":
-        ip_ranges_compiler_pythonic(file='./modules-pythonic/module_172_16_0_0_to_172_31_255_255.txt',
+        ip_ranges_compiler_pythonic(file='./modules-pythonic/module_172_16_0_0_to_172_31_255_255.py',
                            data_enum=fp['./modules-pythonic/module_172_16_0_0_to_172_31_255_255.py']())
     elif user_input == "9P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_192_0_0_0_to_192_0_0_255.py',
