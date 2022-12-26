@@ -15,8 +15,8 @@ Notes on performance experimentation when initializing enumerated/pre-enumerated
     Different systems may vary results.
 
 """
-
-
+print('-'*100)
+print('-- importing modules...')
 import os.path
 import time
 import module_ip_ranger
@@ -40,6 +40,9 @@ import module_233_252_0_0_to_233_252_0_255              #15
 import module_255_255_255_255                           #17
 print('import address ranges time:', time.time() - t0)
 
+# './module_224_0_0_0_to_239_255_255_255.txt': module_ip_ranger.compile_224_0_0_0_to_239_255_255_255,
+# './module_240_0_0_0_to_255_255_255_254.txt': module_ip_ranger.compile_240_0_0_0_to_255_255_255_254}
+
 f = {'./module_0_0_0_0_to_0_255_255_255.txt': module_ip_ranger.compile_0_0_0_0_to_0_255_255_255,
      './module_10_0_0_0_to_10_255_255_255.txt': module_ip_ranger.compile_10_0_0_0_to_10_255_255_255,
      './module_100_64_0_0_to_100_127_255_255.txt': module_ip_ranger.compile_100_64_0_0_to_100_127_255_255,
@@ -53,10 +56,7 @@ f = {'./module_0_0_0_0_to_0_255_255_255.txt': module_ip_ranger.compile_0_0_0_0_t
      './module_198_18_0_0_to_198_19_255_255.txt': module_ip_ranger.compile_198_18_0_0_to_198_19_255_255,
      './module_198_51_100_0_to_198_51_100_255.txt': module_ip_ranger.compile_198_51_100_0_to_198_51_100_255,
      './module_203_0_113_0_to_203_0_113_255.txt': module_ip_ranger.compile_203_0_113_0_to_203_0_113_255,
-     # './module_224_0_0_0_to_239_255_255_255.txt': module_ip_ranger.compile_224_0_0_0_to_239_255_255_255,
-     './module_233_252_0_0_to_233_252_0_255.txt': module_ip_ranger.compile_233_252_0_0_to_233_252_0_255,
-     # './module_240_0_0_0_to_255_255_255_254.txt': module_ip_ranger.compile_240_0_0_0_to_255_255_255_254,
-     './module_255_255_255_255.txt': module_ip_ranger.compile_255_255_255_255}
+     './module_233_252_0_0_to_233_252_0_255.txt': module_ip_ranger.compile_233_252_0_0_to_233_252_0_255}
 
 
 def seperator():
@@ -65,7 +65,7 @@ def seperator():
 
 def benchmark_enum(data_enum=[]):
     t0 = time.time()
-    print('items: ' + str(len(data_enum())))
+    print('enumeration items: ' + str(len(data_enum())))
     print('enumeration time:', time.time() - t0)
 
 
@@ -73,15 +73,15 @@ def benchmark_read(data_enum=[]):
     t0 = time.time()
     try:
         t0 = time.time()
-        print('items: ' + str(len(data_enum(disk=True))))
-        print('enumeration time:', time.time() - t0)
+        print('read items: ' + str(len(data_enum(disk=True))))
+        print('read time:', time.time() - t0)
     except:
         print('file: not yet exists.')
         pass
 
 
 def benchmark_pythonic_list(data_enum=[], t0=()):
-    print('items: ' + str(len(data_enum)))
+    print('pythonic list items: ' + str(len(data_enum)))
     print('pythonic list time:', time.time() - t0)
 
 
@@ -143,9 +143,6 @@ def benchmark_all():
             # elif i == 15:
             #     t0 = time.time()
             #     benchmark_pythonic_list(data_enum=module_240_0_0_0_to_255_255_255_254.reserved_ipv4, t0=t0)
-            elif i == 16:
-                t0 = time.time()
-                benchmark_pythonic_list(data_enum=module_255_255_255_255.reserved_ipv4, t0=t0)
         i += 1
 
 
