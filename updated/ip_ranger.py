@@ -32,7 +32,7 @@ f = {'./modules-standard/module_0_0_0_0_to_0_255_255_255.txt': module_ip_ranger.
 
 
 fp = {'./modules-pythonic/module_0_0_0_0_to_0_255_255_255.py': module_ip_ranger.compile_0_0_0_0_to_0_255_255_255,
-     './modules-pythonic/module_10_0_0_0_to_10_255_255_255.txt': module_ip_ranger.compile_10_0_0_0_to_10_255_255_255,
+     './modules-pythonic/module_10_0_0_0_to_10_255_255_255.py': module_ip_ranger.compile_10_0_0_0_to_10_255_255_255,
      './modules-pythonic/module_100_64_0_0_to_100_127_255_255.py': module_ip_ranger.compile_100_64_0_0_to_100_127_255_255,
      './modules-pythonic/module_127_0_0_0_to_127_255_255_255.py': module_ip_ranger.compile_127_0_0_0_to_127_255_255_255,
      './modules-pythonic/module_169_254_0_0_to_169_254_255_255.py': module_ip_ranger.compile_169_254_0_0_to_169_254_255_255,
