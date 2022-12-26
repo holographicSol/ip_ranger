@@ -326,7 +326,7 @@ while True:
     print('       [S] [STANDARD LIST]')
     print('       [P] [PYTHONIC LIST]')
     print('')
-    print(' [1]         [VALIDATOR]')
+    print(' [1S]        [VALIDATOR]')
     print(' [2S]  [2P]  [CREATE ALL]')
     print('')
     print(' [3S]  [3P]  [CREATE SPECIFIC RANGE] [0.0.0.0]         [0.255.255.255]   [16777216]  [S] [219 MB]  [P] [331 MB]')
