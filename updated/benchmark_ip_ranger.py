@@ -73,7 +73,7 @@ def benchmark_read(data_enum=[]):
     t0 = time.time()
     try:
         t0 = time.time()
-        print('read items: ' + str(len(data_enum(disk=True))))
+        print('read items: ' + str(len(data_enum(mode='read'))))
         print('read time:', time.time() - t0)
     except:
         print('file: not yet exists.')
@@ -94,6 +94,7 @@ def benchmark_all():
             data_enum = f[k]
             benchmark_enum(data_enum=data_enum)
             benchmark_read(data_enum=data_enum)
+            # benchmark_pythonic_list(data_enum=data_enum)
 
             if i == 0:
                 t0 = time.time()
