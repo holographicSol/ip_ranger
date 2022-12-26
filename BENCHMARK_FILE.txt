@@ -1,47 +1,137 @@
---------------------------------------------------
-benchmarking: <function compile_0_0_0_0_to_0_255_255_255 at 0x000002A9912712D0>
-items: 16777216
-enumeration time: 8.006999731063843
-items: 16777216
-read time: 5.815999507904053
---------------------------------------------------
-benchmarking: <function compile_10_0_0_0_to_10_255_255_255 at 0x000002A9912A2560>
-items: 16777216
-enumeration time: 7.341996908187866
-items: 16777216
-read time: 5.789522647857666
---------------------------------------------------
-benchmarking: <function compile_100_64_0_0_to_100_127_255_255 at 0x000002A9912A25F0>
-items: 4194304
-enumeration time: 1.779998540878296
-items: 4194304
-read time: 1.4570012092590332
---------------------------------------------------
-benchmarking: <function compile_192_88_99_0_to_192_88_99_255 at 0x000002A9912A2950>
-items: 256
-enumeration time: 0.0
-items: 256
-read time: 0.0
---------------------------------------------------
-benchmarking: <function compile_192_168_0_0_to_192_168_255_255 at 0x000002A9912A29E0>
-items: 65536
-enumeration time: 0.03400063514709473
-items: 39970
-read time: 0.014000177383422852
---------------------------------------------------
-benchmarking: <function compile_233_252_0_0_to_233_252_0_255 at 0x000002A9912A2CB0>
-items: 256
-enumeration time: 0.0
-items: 0
-read time: 0.0010008811950683594
---------------------------------------------------
-benchmarking: <function compile_255_255_255_255 at 0x000002A9912A2DD0>
-items: 15
-enumeration time: 0.0
-items: 1
-read time: 0.0
+--- running benchmark_ip_ranger.exe (compiled with modules created by ip_ranger.exe)
 
-SUMMARY:
-Reading pre-enumerated list into memory is typically faster than enumeration while pythonic list as pre-enumerated address ranges proved to be the slowest ( not expected and not shown here).
-Note: For a program compiled with the resulting modules from ip_ranger, the import time of module_ip_range_'x' is about 1 second on my system,
-while uncompiled import is 3+ minutes. (For the larger pythonic lists).
+--------------------------------------------------
+import address ranges time: 6.505001544952393
+--------------------------------------------------
+
+benchmarking: <function compile_0_0_0_0_to_0_255_255_255 at 0x000001C4F7DCBF40>
+items: 16777216
+enumeration time: 8.663000345230103
+items: 16777216
+enumeration time: 8.443512439727783
+items: 16777216
+pythonic list time: 0.004012107849121094
+--------------------------------------------------
+benchmarking: <function compile_10_0_0_0_to_10_255_255_255 at 0x000001C4F7DFF370>
+items: 16777216
+enumeration time: 7.73999810218811
+items: 16777216
+enumeration time: 8.3079993724823
+items: 16777216
+pythonic list time: 0.0010023117065429688
+--------------------------------------------------
+benchmarking: <function compile_100_64_0_0_to_100_127_255_255 at 0x000001C4F7DFF400>
+items: 4194304
+enumeration time: 2.1330013275146484
+items: 4194304
+enumeration time: 2.0579874515533447
+items: 4194304
+pythonic list time: 0.0030155181884765625
+--------------------------------------------------
+benchmarking: <function compile_127_0_0_0_to_127_255_255_255 at 0x000001C4F7DFF490>
+items: 16777216
+enumeration time: 10.058516263961792
+items: 16777216
+enumeration time: 9.636999368667603
+items: 16777216
+pythonic list time: 0.0040013790130615234
+--------------------------------------------------
+benchmarking: <function compile_169_254_0_0_to_169_254_255_255 at 0x000001C4F7DFF520>
+items: 65536
+enumeration time: 0.03400087356567383
+items: 65536
+enumeration time: 0.03800010681152344
+items: 65536
+pythonic list time: 0.004000425338745117
+--------------------------------------------------
+benchmarking: <function compile_172_16_0_0_to_172_31_255_255 at 0x000001C4F7DFF5B0>
+items: 1048576
+enumeration time: 0.5939991474151611
+items: 1048576
+enumeration time: 0.5570003986358643
+items: 1048576
+pythonic list time: 0.004001140594482422
+--------------------------------------------------
+benchmarking: <function compile_192_0_0_0_to_192_0_0_255 at 0x000001C4F7DFF640>
+items: 256
+enumeration time: 0.0010085105895996094
+items: 256
+enumeration time: 0.0
+items: 256
+pythonic list time: 0.0010025501251220703
+--------------------------------------------------
+benchmarking: <function compile_192_0_2_0_to_192_0_2_255 at 0x000001C4F7DFF6D0>
+items: 256
+enumeration time: 0.0
+items: 256
+enumeration time: 0.0009970664978027344
+items: 256
+pythonic list time: 0.0009989738464355469
+--------------------------------------------------
+benchmarking: <function compile_192_88_99_0_to_192_88_99_255 at 0x000001C4F7DFF760>
+items: 256
+enumeration time: 0.0010023117065429688
+items: 256
+enumeration time: 0.001001119613647461
+items: 256
+pythonic list time: 0.0
+--------------------------------------------------
+benchmarking: <function compile_192_168_0_0_to_192_168_255_255 at 0x000001C4F7DFF7F0>
+items: 65536
+enumeration time: 0.03800034523010254
+items: 65536
+enumeration time: 0.04600048065185547
+items: 65536
+pythonic list time: 0.003998994827270508
+--------------------------------------------------
+benchmarking: <function compile_198_18_0_0_to_198_19_255_255 at 0x000001C4F7DFF880>
+items: 131072
+enumeration time: 0.07399320602416992
+items: 131072
+enumeration time: 0.07200407981872559
+items: 131072
+pythonic list time: 0.0050013065338134766
+--------------------------------------------------
+benchmarking: <function compile_198_51_100_0_to_198_51_100_255 at 0x000001C4F7DFF910>
+items: 256
+enumeration time: 0.0
+items: 256
+enumeration time: 0.0009999275207519531
+items: 256
+pythonic list time: 0.0009999275207519531
+--------------------------------------------------
+benchmarking: <function compile_203_0_113_0_to_203_0_113_255 at 0x000001C4F7DFF9A0>
+items: 256
+enumeration time: 0.0
+items: 256
+enumeration time: 0.0030012130737304688
+items: 256
+pythonic list time: 0.0009992122650146484
+--------------------------------------------------
+benchmarking: <function compile_233_252_0_0_to_233_252_0_255 at 0x000001C4F7DFFAC0>
+items: 256
+enumeration time: 0.0009832382202148438
+items: 256
+enumeration time: 0.0
+--------------------------------------------------
+benchmarking: <function compile_255_255_255_255 at 0x000001C4F7DFFBE0>
+items: 15
+enumeration time: 0.0010004043579101562
+items: 15
+enumeration time: 0.004003047943115234
+items: 256
+pythonic list time: 0.000993490219116211
+
+[SUMMARY]
+    [Cost]
+        * Pre-enumeration time.
+        * Compile time.
+    [Result]
+        * Extremely fast ranging from program x (benchmark_ip_ranger.exe) startup.
+        * 6 Second startup time for all current ranges to be put in memory and ready to use.
+    [Conclusion]
+        The experiment was worth it. Very worth it.
+
+[Excluded]
+    * These results do not include IP range IP Multicast and IP range Future Range as I am still creating those two
+    module ranges using ip_ranger.exe.
