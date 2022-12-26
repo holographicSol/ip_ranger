@@ -4,7 +4,7 @@ Note: * Modules module_0_0_0_0_to_0_255_255_255 --> module_255_255_255_255 are n
       * Importing modules module_0_0_0_0_to_0_255_255_255 --> module_255_255_255_255 is
         only faster when program x (that imports this module) is compiled.
       * Any module from module_0_0_0_0_to_0_255_255_255 --> module_255_255_255_255 will be imported
-        if exists in THIS module working directory.
+        if exists in THIS module working directory OR in PATH.
       * Place only module module_0_0_0_0_to_0_255_255_255 --> module_255_255_255_255 that are required into
         THIS module directory.
       * Otherwise use enumeration mode or read mode (requires no module module_0_0_0_0_to_0_255_255_255
@@ -138,7 +138,7 @@ def compile_0_0_0_0_to_0_255_255_255(mode='enumeration'):
             return _ips
 
 
-def compile_10_0_0_0_to_10_255_255_255mode(mode='enumeration'):
+def compile_10_0_0_0_to_10_255_255_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -166,7 +166,7 @@ def compile_10_0_0_0_to_10_255_255_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_100_64_0_0_to_100_127_255_255mode(mode='enumeration'):
+def compile_100_64_0_0_to_100_127_255_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -195,7 +195,7 @@ def compile_100_64_0_0_to_100_127_255_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_127_0_0_0_to_127_255_255_255mode(mode='enumeration'):
+def compile_127_0_0_0_to_127_255_255_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -223,7 +223,7 @@ def compile_127_0_0_0_to_127_255_255_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_169_254_0_0_to_169_254_255_255mode(mode='enumeration'):
+def compile_169_254_0_0_to_169_254_255_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -253,7 +253,7 @@ def compile_169_254_0_0_to_169_254_255_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_172_16_0_0_to_172_31_255_255mode(mode='enumeration'):
+def compile_172_16_0_0_to_172_31_255_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -281,7 +281,7 @@ def compile_172_16_0_0_to_172_31_255_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_192_0_0_0_to_192_0_0_255mode(mode='enumeration'):
+def compile_192_0_0_0_to_192_0_0_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -309,7 +309,7 @@ def compile_192_0_0_0_to_192_0_0_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_192_0_2_0_to_192_0_2_255mode(mode='enumeration'):
+def compile_192_0_2_0_to_192_0_2_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -337,7 +337,7 @@ def compile_192_0_2_0_to_192_0_2_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_192_88_99_0_to_192_88_99_255mode(mode='enumeration'):
+def compile_192_88_99_0_to_192_88_99_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -366,7 +366,7 @@ def compile_192_88_99_0_to_192_88_99_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_192_168_0_0_to_192_168_255_255mode(mode='enumeration'):
+def compile_192_168_0_0_to_192_168_255_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -394,7 +394,7 @@ def compile_192_168_0_0_to_192_168_255_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_198_18_0_0_to_198_19_255_255mode(mode='enumeration'):
+def compile_198_18_0_0_to_198_19_255_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -423,7 +423,7 @@ def compile_198_18_0_0_to_198_19_255_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_198_51_100_0_to_198_51_100_255mode(mode='enumeration'):
+def compile_198_51_100_0_to_198_51_100_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -451,7 +451,7 @@ def compile_198_51_100_0_to_198_51_100_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_203_0_113_0_to_203_0_113_255mode(mode='enumeration'):
+def compile_203_0_113_0_to_203_0_113_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -479,7 +479,7 @@ def compile_203_0_113_0_to_203_0_113_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_224_0_0_0_to_239_255_255_255mode(mode='enumeration'):
+def compile_224_0_0_0_to_239_255_255_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -507,7 +507,7 @@ def compile_224_0_0_0_to_239_255_255_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_233_252_0_0_to_233_252_0_255mode(mode='enumeration'):
+def compile_233_252_0_0_to_233_252_0_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -535,7 +535,7 @@ def compile_233_252_0_0_to_233_252_0_255mode(mode='enumeration'):
             return _ips
 
 
-def compile_240_0_0_0_to_255_255_255_254mode(mode='enumeration'):
+def compile_240_0_0_0_to_255_255_255_254(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
@@ -563,7 +563,7 @@ def compile_240_0_0_0_to_255_255_255_254mode(mode='enumeration'):
             return _ips
 
 
-def compile_255_255_255_255mode(mode='enumeration'):
+def compile_255_255_255_255(mode='enumeration'):
     """
     Options:
         (mode = str) Default mode='enumeration'
