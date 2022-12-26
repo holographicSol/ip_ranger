@@ -1,4 +1,18 @@
-""" Written by Benjamin Jack Cullen """
+""" Written by Benjamin Jack Cullen
+
+Note: * Modules module_0_0_0_0_to_0_255_255_255 --> module_255_255_255_255 are not needed to run this module.
+      * Importing modules module_0_0_0_0_to_0_255_255_255 --> module_255_255_255_255 is
+        only faster when program x (that imports this module) is compiled.
+      * Any module from module_0_0_0_0_to_0_255_255_255 --> module_255_255_255_255 will be imported
+        if exists in THIS module working directory.
+      * Place only module module_0_0_0_0_to_0_255_255_255 --> module_255_255_255_255 that are required into
+        THIS module directory.
+      * Otherwise use enumeration mode or read mode (requires no module module_0_0_0_0_to_0_255_255_255
+        --> module_255_255_255_255) (But slower when compiled).
+      * Best performance: A compiled program 'x' that imports this module with
+        each module module_0_0_0_0_to_0_255_255_255 --> module_255_255_255_255.
+
+"""
 
 import os
 import socket
