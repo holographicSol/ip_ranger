@@ -10,7 +10,7 @@ import os
 import time
 import module_ip_ranger
 import pyprogress
-import module_speed_writer_pyprogress
+import module_speed_writer
 
 multiplier = pyprogress.multiplier_from_inverse_factor(factor=25)
 
@@ -135,29 +135,6 @@ def compile_all_reserved_ip_ranges():
         print('-'*100)
 
 
-def compile_all_reserved_ip_ranges_pythonic():
-    print('[MODE] PYTHONIC LIST')
-    print('[WARNING] This requires a lot of disk space!')
-    user_input = input('continue? ')
-    if user_input == 'y' or user_input == 'Y':
-        i = 0
-        for k in fp:
-            print('')
-            print('-' * 100)
-            print('[IP RANGER - MODULE CREATOR]')
-            print('')
-            print('[FILE] Attempting to create:', k, 'with associated function:', fp[k])
-            print('[ENUMERATING] This may take a moment...')
-            data_enum = fp[k]()
-            print('[ENUMERATING] Completed.')
-            ip_ranges_compiler_pythonic(file=k, data_enum=data_enum)
-            i += 1
-    else:
-        print('Aborting!')
-        print('')
-        print('-'*100)
-
-
 def ip_ranges_compiler_pythonic(file=str, data_enum=[], loop=True):
     display_header()
     print('[FILE] ', file)
@@ -165,12 +142,13 @@ def ip_ranges_compiler_pythonic(file=str, data_enum=[], loop=True):
 
         if loop is True:
             t0 = time.time()
-            name = 'reserved_ipv4'
             print('[ADVANCED] Write Mode')
             print('[ADVANCED] Converting List...')
-            _pythonic_list = module_speed_writer_pyprogress.make_pythonic_list(items=data_enum, name=name)
+            name = 'reserved_ipv4'
+            _pythonic_list = module_speed_writer.make_pythonic_list(items=data_enum, name=name)
             print('[ADVANCED] List Converted')
-            module_speed_writer_pyprogress.create_module_file(file=file, min=0, max=int(len(data_enum) + 1),
+            print('[WRITING] This may take a moment...')
+            module_speed_writer.create_module_file(file=file, min=0, max=int(len(data_enum) + 1),
                                                               _pythonic_list=_pythonic_list)
             d = time.time() - t0
             print("\n[TIME] %.2f s." % d)
