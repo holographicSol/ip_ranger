@@ -21,27 +21,24 @@ import os.path
 import time
 import module_ip_ranger
 t0 = time.time()
-import module_0_0_0_0_to_0_255_255_255                  #1
-import module_10_0_0_0_to_10_255_255_255                #2
+import module_0_0_0_0_to_0_255_255_255
+import module_10_0_0_0_to_10_255_255_255
 import module_100_64_0_0_to_100_127_255_255
 import module_127_0_0_0_to_127_255_255_255
-import module_169_254_0_0_to_169_254_255_255            #5
+import module_169_254_0_0_to_169_254_255_255
 import module_172_16_0_0_to_172_31_255_255
-import module_192_0_0_0_to_192_0_0_255                  #7
-import module_192_0_2_0_to_192_0_2_255                  #8
-import module_192_88_99_0_to_192_88_99_255              #9
+import module_192_0_0_0_to_192_0_0_255
+import module_192_0_2_0_to_192_0_2_255
+import module_192_88_99_0_to_192_88_99_255
 import module_192_168_0_0_to_192_168_255_255
 import module_198_18_0_0_to_198_19_255_255
-import module_198_51_100_0_to_198_51_100_255            #12
-import module_203_0_113_0_to_203_0_113_255              #13
-# import module_224_0_0_0_to_239_255_255_255
-import module_233_252_0_0_to_233_252_0_255              #15
-# import module_240_0_0_0_to_255_255_255_254
-import module_255_255_255_255                           #17
+import module_198_51_100_0_to_198_51_100_255
+import module_203_0_113_0_to_203_0_113_255
+import module_224_0_0_0_to_239_255_255_255
+import module_233_252_0_0_to_233_252_0_255
+import module_240_0_0_0_to_255_255_255_254
 print('import address ranges time:', time.time() - t0)
 
-# './module_224_0_0_0_to_239_255_255_255.txt': module_ip_ranger.compile_224_0_0_0_to_239_255_255_255,
-# './module_240_0_0_0_to_255_255_255_254.txt': module_ip_ranger.compile_240_0_0_0_to_255_255_255_254}
 
 f = {'./module_0_0_0_0_to_0_255_255_255.txt': module_ip_ranger.compile_0_0_0_0_to_0_255_255_255,
      './module_10_0_0_0_to_10_255_255_255.txt': module_ip_ranger.compile_10_0_0_0_to_10_255_255_255,
@@ -56,7 +53,9 @@ f = {'./module_0_0_0_0_to_0_255_255_255.txt': module_ip_ranger.compile_0_0_0_0_t
      './module_198_18_0_0_to_198_19_255_255.txt': module_ip_ranger.compile_198_18_0_0_to_198_19_255_255,
      './module_198_51_100_0_to_198_51_100_255.txt': module_ip_ranger.compile_198_51_100_0_to_198_51_100_255,
      './module_203_0_113_0_to_203_0_113_255.txt': module_ip_ranger.compile_203_0_113_0_to_203_0_113_255,
-     './module_233_252_0_0_to_233_252_0_255.txt': module_ip_ranger.compile_233_252_0_0_to_233_252_0_255}
+     './module_224_0_0_0_to_239_255_255_255.txt': module_ip_ranger.compile_224_0_0_0_to_239_255_255_255,
+     './module_233_252_0_0_to_233_252_0_255.txt': module_ip_ranger.compile_233_252_0_0_to_233_252_0_255,
+     './module_240_0_0_0_to_255_255_255_254.txt': module_ip_ranger.compile_240_0_0_0_to_255_255_255_254}
 
 
 def seperator():
@@ -94,7 +93,6 @@ def benchmark_all():
             data_enum = f[k]
             benchmark_enum(data_enum=data_enum)
             benchmark_read(data_enum=data_enum)
-            # benchmark_pythonic_list(data_enum=data_enum)
 
             if i == 0:
                 t0 = time.time()
@@ -135,15 +133,15 @@ def benchmark_all():
             elif i == 12:
                 t0 = time.time()
                 benchmark_pythonic_list(data_enum=module_203_0_113_0_to_203_0_113_255.reserved_ipv4, t0=t0)
-            # elif i == 13:
-            #     t0 = time.time()
-            #     benchmark_pythonic_list(data_enum=module_224_0_0_0_to_239_255_255_255.reserved_ipv4, t0=t0)
+            elif i == 13:
+                t0 = time.time()
+                benchmark_pythonic_list(data_enum=module_224_0_0_0_to_239_255_255_255.reserved_ipv4, t0=t0)
             elif i == 14:
                 t0 = time.time()
                 benchmark_pythonic_list(data_enum=module_233_252_0_0_to_233_252_0_255.reserved_ipv4, t0=t0)
-            # elif i == 15:
-            #     t0 = time.time()
-            #     benchmark_pythonic_list(data_enum=module_240_0_0_0_to_255_255_255_254.reserved_ipv4, t0=t0)
+            elif i == 15:
+                t0 = time.time()
+                benchmark_pythonic_list(data_enum=module_240_0_0_0_to_255_255_255_254.reserved_ipv4, t0=t0)
         i += 1
 
 
