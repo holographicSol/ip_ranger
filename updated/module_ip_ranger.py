@@ -110,6 +110,15 @@ def ips(start, end):
     return [socket.inet_ntoa(struct.pack('>I', i)) for i in range(start, end+1)]
 
 
+def ips_pythonic_list_file_format(start, end):
+    start = struct.unpack('>I', socket.inet_aton(start))[0]
+    end = struct.unpack('>I', socket.inet_aton(end))[0]
+    _python_list = [str('    "') + str(socket.inet_ntoa(struct.pack('>I', i))) + str('",') for i in range(start, end+1)]
+    _python_list.insert(0, 'reserved_ipv4 = [')
+    _python_list[-1] = _python_list[-1].replace(',', ']\n')
+    return _python_list
+
+
 def compile_0_0_0_0_to_0_255_255_255(mode='enumeration'):
     """
     Options:
@@ -127,6 +136,8 @@ def compile_0_0_0_0_to_0_255_255_255(mode='enumeration'):
         return module_0_0_0_0_to_0_255_255_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('0.0.0.0', '0.255.255.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('0.0.0.0', '0.255.255.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_0_0_0_0_to_0_255_255_255.txt'):
@@ -155,6 +166,8 @@ def compile_10_0_0_0_to_10_255_255_255(mode='enumeration'):
         return module_10_0_0_0_to_10_255_255_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('10.0.0.0', '10.255.255.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('10.0.0.0', '10.255.255.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_10_0_0_0_to_10_255_255_255.txt'):
@@ -184,6 +197,8 @@ def compile_100_64_0_0_to_100_127_255_255(mode='enumeration'):
         return module_100_64_0_0_to_100_127_255_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('100.64.0.0', '100.127.255.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('100.64.0.0', '100.127.255.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_100_64_0_0_to_100_127_255_255.txt'):
@@ -212,6 +227,8 @@ def compile_127_0_0_0_to_127_255_255_255(mode='enumeration'):
         return module_127_0_0_0_to_127_255_255_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('127.0.0.0', '127.255.255.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('127.0.0.0', '127.255.255.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_127_0_0_0_to_127_255_255_255.txt'):
@@ -242,6 +259,8 @@ def compile_169_254_0_0_to_169_254_255_255(mode='enumeration'):
         return module_169_254_0_0_to_169_254_255_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('169.254.0.0', '169.254.255.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('169.254.0.0', '169.254.255.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_169_254_0_0_to_169_254_255_255.txt'):
@@ -270,6 +289,8 @@ def compile_172_16_0_0_to_172_31_255_255(mode='enumeration'):
         return module_172_16_0_0_to_172_31_255_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('172.16.0.0', '172.31.255.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('172.16.0.0', '172.31.255.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_172_16_0_0_to_172_31_255_255.txt'):
@@ -298,6 +319,8 @@ def compile_192_0_0_0_to_192_0_0_255(mode='enumeration'):
         return module_192_0_0_0_to_192_0_0_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('192.0.0.0', '192.0.0.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('192.0.0.0', '192.0.0.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_192_0_0_0_to_192_0_0_255.txt'):
@@ -326,6 +349,8 @@ def compile_192_0_2_0_to_192_0_2_255(mode='enumeration'):
         return module_192_0_2_0_to_192_0_2_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('192.0.2.0', '192.0.2.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('192.0.2.0', '192.0.2.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_192_0_2_0_to_192_0_2_255.txt'):
@@ -355,6 +380,8 @@ def compile_192_88_99_0_to_192_88_99_255(mode='enumeration'):
         return module_192_88_99_0_to_192_88_99_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('192.88.99.0', '192.88.99.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('192.88.99.0', '192.88.99.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_192_88_99_0_to_192_88_99_255.txt'):
@@ -383,6 +410,8 @@ def compile_192_168_0_0_to_192_168_255_255(mode='enumeration'):
         return module_192_168_0_0_to_192_168_255_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('192.168.0.0', '192.168.255.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('192.168.0.0', '192.168.255.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_192_168_0_0_to_192_168_255_255.txt'):
@@ -412,6 +441,8 @@ def compile_198_18_0_0_to_198_19_255_255(mode='enumeration'):
         return module_198_18_0_0_to_198_19_255_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('198.18.0.0', '198.19.255.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('198.18.0.0', '198.19.255.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_198_18_0_0_to_198_19_255_255.txt'):
@@ -440,6 +471,8 @@ def compile_198_51_100_0_to_198_51_100_255(mode='enumeration'):
         return module_198_51_100_0_to_198_51_100_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('198.51.100.0', '198.51.100.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('198.51.100.0', '198.51.100.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_198_51_100_0_to_198_51_100_255.txt'):
@@ -468,6 +501,8 @@ def compile_203_0_113_0_to_203_0_113_255(mode='enumeration'):
         return module_203_0_113_0_to_203_0_113_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('203.0.113.0', '203.0.113.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('203.0.113.0', '203.0.113.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_203_0_113_0_to_203_0_113_255.txt'):
@@ -496,6 +531,8 @@ def compile_224_0_0_0_to_239_255_255_255(mode='enumeration'):
         return module_224_0_0_0_to_239_255_255_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('224.0.0.0', '239.255.255.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('224.0.0.0', '239.255.255.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_224_0_0_0_to_239_255_255_255.txt'):
@@ -524,6 +561,8 @@ def compile_233_252_0_0_to_233_252_0_255(mode='enumeration'):
         return module_233_252_0_0_to_233_252_0_255.reserved_ipv4
     elif mode == 'enumeration':
         return ips('233.252.0.0', '233.252.0.255')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('233.252.0.0', '233.252.0.255')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_233_252_0_0_to_233_252_0_255.txt'):
@@ -552,6 +591,8 @@ def compile_240_0_0_0_to_255_255_255_254(mode='enumeration'):
         return module_240_0_0_0_to_255_255_255_254.reserved_ipv4
     elif mode == 'enumeration':
         return ips('240.0.0.0', '255.255.255.254')
+    elif mode == 'enumeration_for_python_module_file':
+        return ips_pythonic_list_file_format('240.0.0.0', '255.255.255.254')
     elif mode == 'read':
         _ips = []
         if os.path.exists('./module_240_0_0_0_to_255_255_255_254.txt'):
@@ -576,16 +617,5 @@ def compile_255_255_255_255(mode='enumeration'):
     Expected number of addresses: 1
     Expected Size on Disk:
     """
-    if mode == 'module':
-        return module_255_255_255_255.reserved_ipv4
-    elif mode == 'enumeration':
-        return '255.255.255.255'
-    elif mode == 'read':
-        _ips = []
-        if os.path.exists('./module_255_255_255_255.txt'):
-            with open("./module_255_255_255_255.txt", "r") as fo:
-                for line in fo:
-                    line = line.strip()
-                    _ips.append(line)
-            fo.close()
-            return _ips
+
+    return '255.255.255.255'

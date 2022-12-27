@@ -135,28 +135,23 @@ def compile_all_reserved_ip_ranges():
         print('-'*100)
 
 
-def ip_ranges_compiler_pythonic(file=str, data_enum=[], loop=True):
+def ip_ranges_compiler_pythonic(file=str, data_enum=[], single=False):
     display_header()
     print('[FILE] ', file)
     if warn_user(file=file) is True:
 
-        if loop is True:
+        if single is False:
             t0 = time.time()
-            print('[ADVANCED] Write Mode')
-            print('[ADVANCED] Converting List...')
-            name = 'reserved_ipv4'
-            _pythonic_list = module_speed_writer.make_pythonic_list(items=data_enum, name=name)
-            print('[ADVANCED] List Converted')
             print('[WRITING] This may take a moment...')
-            module_speed_writer.create_module_file(file=file, min=0, max=int(len(data_enum) + 1),
-                                                              _pythonic_list=_pythonic_list)
+            module_speed_writer.create_module_file(file=file, min=0, max=int(len(data_enum)),
+                                                              _pythonic_list=data_enum)
             d = time.time() - t0
             print("\n[TIME] %.2f s." % d)
 
         else:
             open(file, 'w').close()
             with open(file, 'a') as fo:
-                fo.write('reserved_ipv4 = ["' + str(data_enum) + '"]\n')
+                fo.write('reserved_ipv4 = [\n    "' + str(data_enum) + '"]\n')
             fo.close()
 
     print('\n[COMPLETED]\n')
@@ -586,118 +581,118 @@ while True:
 
     elif user_input == "3P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_0_0_0_0_to_0_255_255_255.py',
-                           data_enum=fp['./modules-pythonic/module_0_0_0_0_to_0_255_255_255.py']())
+                           data_enum=fp['./modules-pythonic/module_0_0_0_0_to_0_255_255_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "3PV":
         validator_pythonic(file='./modules-pythonic/module_0_0_0_0_to_0_255_255_255.py', data_enum=fp['./modules-pythonic/module_0_0_0_0_to_0_255_255_255.py'])
 
     elif user_input == "4P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_10_0_0_0_to_10_255_255_255.py',
-                           data_enum=fp['./modules-pythonic/module_10_0_0_0_to_10_255_255_255.py']())
+                           data_enum=fp['./modules-pythonic/module_10_0_0_0_to_10_255_255_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "4PV":
         validator_pythonic(file='./modules-pythonic/module_10_0_0_0_to_10_255_255_255.py', data_enum=fp['./modules-pythonic/module_10_0_0_0_to_10_255_255_255.py'])
 
     elif user_input == "5P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_100_64_0_0_to_100_127_255_255.py',
-                           data_enum=fp['./modules-pythonic/module_100_64_0_0_to_100_127_255_255.py']())
+                           data_enum=fp['./modules-pythonic/module_100_64_0_0_to_100_127_255_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "5PV":
         validator_pythonic(file='./modules-pythonic/module_100_64_0_0_to_100_127_255_255.py', data_enum=fp['./modules-pythonic/module_100_64_0_0_to_100_127_255_255.py'])
 
     elif user_input == "6P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_127_0_0_0_to_127_255_255_255.py',
-                           data_enum=fp['./modules-pythonic/module_127_0_0_0_to_127_255_255_255.py']())
+                           data_enum=fp['./modules-pythonic/module_127_0_0_0_to_127_255_255_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "6PV":
         validator_pythonic(file='./modules-pythonic/module_127_0_0_0_to_127_255_255_255.py', data_enum=fp['./modules-pythonic/module_127_0_0_0_to_127_255_255_255.py'])
 
     elif user_input == "7P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_169_254_0_0_to_169_254_255_255.py',
-                           data_enum=fp['./modules-pythonic/module_169_254_0_0_to_169_254_255_255.py']())
+                           data_enum=fp['./modules-pythonic/module_169_254_0_0_to_169_254_255_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "7PV":
         validator_pythonic(file='./modules-pythonic/module_169_254_0_0_to_169_254_255_255.py', data_enum=fp['./modules-pythonic/module_169_254_0_0_to_169_254_255_255.py'])
 
     elif user_input == "8P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_172_16_0_0_to_172_31_255_255.py',
-                           data_enum=fp['./modules-pythonic/module_172_16_0_0_to_172_31_255_255.py']())
+                           data_enum=fp['./modules-pythonic/module_172_16_0_0_to_172_31_255_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "8PV":
         validator_pythonic(file='./modules-pythonic/module_172_16_0_0_to_172_31_255_255.py', data_enum=fp['./modules-pythonic/module_172_16_0_0_to_172_31_255_255.py'])
 
     elif user_input == "9P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_192_0_0_0_to_192_0_0_255.py',
-                           data_enum=fp['./modules-pythonic/module_192_0_0_0_to_192_0_0_255.py']())
+                           data_enum=fp['./modules-pythonic/module_192_0_0_0_to_192_0_0_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "9PV":
         validator_pythonic(file='./modules-pythonic/module_192_0_0_0_to_192_0_0_255.py', data_enum=fp['./modules-pythonic/module_192_0_0_0_to_192_0_0_255.py'])
 
     elif user_input == "10P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_192_0_2_0_to_192_0_2_255.py',
-                           data_enum=fp['./modules-pythonic/module_192_0_2_0_to_192_0_2_255.py']())
+                           data_enum=fp['./modules-pythonic/module_192_0_2_0_to_192_0_2_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "10PV":
         validator_pythonic(file='./modules-pythonic/module_192_0_2_0_to_192_0_2_255.py', data_enum=fp['./modules-pythonic/module_192_0_2_0_to_192_0_2_255.py'])
 
     elif user_input == "11P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_192_88_99_0_to_192_88_99_255.py',
-                           data_enum=fp['./modules-pythonic/module_192_88_99_0_to_192_88_99_255.py']())
+                           data_enum=fp['./modules-pythonic/module_192_88_99_0_to_192_88_99_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "11PV":
         validator_pythonic(file='./modules-pythonic/module_192_88_99_0_to_192_88_99_255.py', data_enum=fp['./modules-pythonic/module_192_88_99_0_to_192_88_99_255.py'])
 
     elif user_input == "12P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_192_168_0_0_to_192_168_255_255.py',
-                           data_enum=fp['./modules-pythonic/module_192_168_0_0_to_192_168_255_255.py']())
+                           data_enum=fp['./modules-pythonic/module_192_168_0_0_to_192_168_255_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "12PV":
         validator_pythonic(file='./modules-pythonic/module_192_168_0_0_to_192_168_255_255.py', data_enum=fp['./modules-pythonic/module_192_168_0_0_to_192_168_255_255.py'])
 
     elif user_input == "13P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_198_18_0_0_to_198_19_255_255.py',
-                           data_enum=fp['./modules-pythonic/module_198_18_0_0_to_198_19_255_255.py']())
+                           data_enum=fp['./modules-pythonic/module_198_18_0_0_to_198_19_255_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "13PV":
         validator_pythonic(file='./modules-pythonic/module_198_18_0_0_to_198_19_255_255.py', data_enum=fp['./modules-pythonic/module_198_18_0_0_to_198_19_255_255.py'])
 
     elif user_input == "14P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_198_51_100_0_to_198_51_100_255.py',
-                           data_enum=fp['./modules-pythonic/module_198_51_100_0_to_198_51_100_255.py']())
+                           data_enum=fp['./modules-pythonic/module_198_51_100_0_to_198_51_100_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "14PV":
         validator_pythonic(file='./modules-pythonic/module_198_51_100_0_to_198_51_100_255.py', data_enum=fp['./modules-pythonic/module_198_51_100_0_to_198_51_100_255.py'])
 
     elif user_input == "15P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_203_0_113_0_to_203_0_113_255.py',
-                           data_enum=fp['./modules-pythonic/module_203_0_113_0_to_203_0_113_255.py']())
+                           data_enum=fp['./modules-pythonic/module_203_0_113_0_to_203_0_113_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "15PV":
         validator_pythonic(file='./modules-pythonic/module_203_0_113_0_to_203_0_113_255.py', data_enum=fp['./modules-pythonic/module_203_0_113_0_to_203_0_113_255.py'])
 
     elif user_input == "16P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_224_0_0_0_to_239_255_255_255.py',
-                           data_enum=fp['./modules-pythonic/module_224_0_0_0_to_239_255_255_255.py']())
+                           data_enum=fp['./modules-pythonic/module_224_0_0_0_to_239_255_255_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "16PV":
         validator_pythonic(file='./modules-pythonic/module_224_0_0_0_to_239_255_255_255.py', data_enum=fp['./modules-pythonic/module_224_0_0_0_to_239_255_255_255.py'])
 
     elif user_input == "17P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_233_252_0_0_to_233_252_0_255.py',
-                           data_enum=fp['./modules-pythonic/module_233_252_0_0_to_233_252_0_255.py']())
+                           data_enum=fp['./modules-pythonic/module_233_252_0_0_to_233_252_0_255.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "17PV":
         validator_pythonic(file='./modules-pythonic/module_233_252_0_0_to_233_252_0_255.py', data_enum=fp['./modules-pythonic/module_233_252_0_0_to_233_252_0_255.py'])
 
     elif user_input == "18P":
         ip_ranges_compiler_pythonic(file='./modules-pythonic/module_240_0_0_0_to_255_255_255_254.py',
-                           data_enum=fp['./modules-pythonic/module_240_0_0_0_to_255_255_255_254.py']())
+                           data_enum=fp['./modules-pythonic/module_240_0_0_0_to_255_255_255_254.py'](mode='enumeration_for_python_module_file'))
 
     elif user_input == "18PV":
         validator_pythonic(file='./modules-pythonic/module_240_0_0_0_to_255_255_255_254.py', data_enum=fp['./modules-pythonic/module_240_0_0_0_to_255_255_255_254.py'])
 
     elif user_input == "19P":
-        ip_ranges_compiler_pythonic(file='./modules-pythonic/module_255_255_255_255.py', data_enum=fp['./modules-pythonic/module_255_255_255_255.py'](), loop=False)
+        ip_ranges_compiler_pythonic(file='./modules-pythonic/module_255_255_255_255.py', data_enum=fp['./modules-pythonic/module_255_255_255_255.py'](), single=True)
 
     elif user_input == "19PV":
         validator_pythonic(file='./modules-pythonic/module_255_255_255_255.py', data_enum=fp['./modules-pythonic/module_255_255_255_255.py'])
