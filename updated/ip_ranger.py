@@ -188,8 +188,7 @@ def ip_ranges_compiler_pythonic(file=str, data_enum=[], loop=True):
             with open(file, 'a') as fo:
                 fo.write('    "' + str(data_enum) + '"]\n')
             fo.close()
-            i_x += 1
-            display_progress(i_x, data_enum_len, pre_append)
+
     print('\n[COMPLETED]\n')
 
 
