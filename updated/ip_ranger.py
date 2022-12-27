@@ -7,8 +7,10 @@ This program creates human lists of IPv4 address ranges and writes them to files
 """
 
 import os
+import time
 import module_ip_ranger
 import pyprogress
+import module_speed_writer_pyprogress
 
 multiplier = pyprogress.multiplier_from_inverse_factor(factor=25)
 
@@ -29,7 +31,6 @@ f = {'./modules-standard/module_0_0_0_0_to_0_255_255_255.txt': module_ip_ranger.
      './modules-standard/module_233_252_0_0_to_233_252_0_255.txt': module_ip_ranger.compile_233_252_0_0_to_233_252_0_255,
      './modules-standard/module_240_0_0_0_to_255_255_255_254.txt': module_ip_ranger.compile_240_0_0_0_to_255_255_255_254,
      './modules-standard/module_255_255_255_255.txt': module_ip_ranger.compile_255_255_255_255}
-
 
 fp = {'./modules-pythonic/module_0_0_0_0_to_0_255_255_255.py': module_ip_ranger.compile_0_0_0_0_to_0_255_255_255,
      './modules-pythonic/module_10_0_0_0_to_10_255_255_255.py': module_ip_ranger.compile_10_0_0_0_to_10_255_255_255,
@@ -169,21 +170,19 @@ def ip_ranges_compiler_pythonic(file=str, data_enum=[], loop=True):
             fo.write('reserved_ipv4 = [\n')
         fo.close()
 
-        i_x = 0
         if loop is True:
-            data_enum_len = len(data_enum)
-            print('[WRITING]', data_enum_len, 'items to file.')
+            t0 = time.time()
+            name = 'reserved_ipv4'
+            fname = file
+            print('[ADVANCED] Write Mode')
+            print('[ADVANCED] Converting List...')
+            _pythonic_list = module_speed_writer_pyprogress.make_pythonic_list(items=data_enum, name=name)
+            print('[ADVANCED] List Converted')
+            module_speed_writer_pyprogress.create_module_file(file=fname, min=0, max=int(len(data_enum) + 1),
+                                                              _pythonic_list=_pythonic_list)
+            d = time.time() - t0
+            print("\n[TIME] %.2f s." % d)
 
-            for _ in data_enum:
-                with open(file, 'a') as fo:
-                    if _ == data_enum[-1]:
-                        fo.write('    "' + str(_) + '"]\n')
-                    else:
-                        fo.write('    "' + str(_) + '",\n')
-                fo.close()
-
-                i_x += 1
-                display_progress(i_x, data_enum_len, pre_append)
         else:
             data_enum_len = 1
             with open(file, 'a') as fo:
@@ -441,6 +440,7 @@ while True:
     print('')
     print('')
     print(' [KEY]')
+    print('       [DEVELOPER TOOL] ?')
     print('       [DESCRIPTION] Creates files of IPv4 address ranges that can be used for speed ranging.')
     print('       [A] [ALL]')
     print('       [V] [VERIFY] Verify an existing list of an IPv4 address range.')
