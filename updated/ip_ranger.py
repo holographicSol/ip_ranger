@@ -162,29 +162,23 @@ def ip_ranges_compiler_pythonic(file=str, data_enum=[], loop=True):
     display_header()
     print('[FILE] ', file)
     if warn_user(file=file) is True:
-        open(file, 'w').close()
-        print('')
-
-        with open(file, 'a') as fo:
-            fo.write('reserved_ipv4 = [\n')
-        fo.close()
 
         if loop is True:
             t0 = time.time()
             name = 'reserved_ipv4'
-            fname = file
             print('[ADVANCED] Write Mode')
             print('[ADVANCED] Converting List...')
             _pythonic_list = module_speed_writer_pyprogress.make_pythonic_list(items=data_enum, name=name)
             print('[ADVANCED] List Converted')
-            module_speed_writer_pyprogress.create_module_file(file=fname, min=0, max=int(len(data_enum) + 1),
+            module_speed_writer_pyprogress.create_module_file(file=file, min=0, max=int(len(data_enum) + 1),
                                                               _pythonic_list=_pythonic_list)
             d = time.time() - t0
             print("\n[TIME] %.2f s." % d)
 
         else:
+            open(file, 'w').close()
             with open(file, 'a') as fo:
-                fo.write('    "' + str(data_enum) + '"]\n')
+                fo.write('reserved_ipv4 = ["' + str(data_enum) + '"]\n')
             fo.close()
 
     print('\n[COMPLETED]\n')
@@ -437,7 +431,7 @@ while True:
     print('')
     print('')
     print(' [KEY]')
-    print('       [DEVELOPER TOOL] ?')
+    print('       [DEVELOPER TOOL]')
     print('       [DESCRIPTION] Creates files of IPv4 address ranges that can be used for speed ranging.')
     print('       [A] [ALL]')
     print('       [V] [VERIFY] Verify an existing list of an IPv4 address range.')
