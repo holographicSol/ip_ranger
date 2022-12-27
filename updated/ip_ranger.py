@@ -85,30 +85,24 @@ def display_progress(i_x, data_enum_len, pre_append):
                             multiplier=multiplier)
 
 
-def ip_ranges_compiler(file=str, data_enum=[], loop=True):
+def ip_ranges_compiler(file=str, data_enum=[], single=False):
     display_header()
     print('[FILE] ', file)
     if warn_user(file=file) is True:
-        open(file, 'w').close()
-        pre_append = '[WRITING] '
-        print('')
-        i_x = 0
-        if loop is True:
-            data_enum_len = len(data_enum)
-            print('[WRITING]', data_enum_len, 'items to file.')
-            for _ in data_enum:
-                with open(file, 'a') as fo:
-                    fo.write(_+'\n')
-                fo.close()
-                i_x += 1
-                display_progress(i_x, data_enum_len, pre_append)
+        if single is False:
+            t0 = time.time()
+            print('[WRITING] This may take a moment...')
+            module_speed_writer.create_module_file(file=file, min=0, max=int(len(data_enum)),
+                                                   _pythonic_list=data_enum)
+            d = time.time() - t0
+            print("\n[TIME] %.2f s." % d)
+
         else:
-            data_enum_len = 1
+            open(file, 'w').close()
             with open(file, 'a') as fo:
                 fo.write(str(data_enum) + '\n')
             fo.close()
-            i_x += 1
-            display_progress(i_x, data_enum_len, pre_append)
+
     print('\n[COMPLETED]\n')
 
 
@@ -433,9 +427,9 @@ while True:
     print(' [13S] [13SV] [13P] [13PV] [198.18.0.0]      [->] [198.19.255.255]  [131072]    [1.89 MB] [2.76 MB]')
     print(' [14S] [14SV] [14P] [14PV] [198.51.100.0]    [->] [198.51.100.255]  [256]       [4 kB]    [8 KB]')
     print(' [15S] [15SV] [15P] [15PV] [203.0.113.0]     [->] [203.0.113.255]   [256]       [4 kB]    [8 KB]')
-    print(' [16S] [16SV] [16P] [16PV] [224.0.0.0]       [->] [239.255.255.255] [268435456] [...]     [...]')
+    print(' [16S] [16SV] [16P] [16PV] [224.0.0.0]       [->] [239.255.255.255] [268435456] [...]     [5.42 GB]')
     print(' [17S] [17SV] [17P] [17PV] [233.252.0.0]     [->] [233.252.0.255]   [256]       [4 kB]    [8 KB]')
-    print(' [18S] [18SV] [18P] [18PV] [240.0.0.0]       [->] [255.255.255.254] [268435455] [...]     [...]')
+    print(' [18S] [18SV] [18P] [18PV] [240.0.0.0]       [->] [255.255.255.254] [268435455] [...]     [5.42 GB]')
     print(' [19S] [19SV] [19P] [19PV] [255.255.255.255]                        [1]         [1 kB]    [1 KB]')
     print('')
     print(' [Q] [QUIT]')
@@ -574,7 +568,7 @@ while True:
         validator(file='./modules-standard/module_240_0_0_0_to_255_255_255_254.txt', data_enum=f['./modules-standard/module_240_0_0_0_to_255_255_255_254.txt'])
 
     elif user_input == "19S":
-        ip_ranges_compiler(file='./modules-standard/module_255_255_255_255.txt', data_enum=f['./modules-standard/module_255_255_255_255.txt'](), loop=False)
+        ip_ranges_compiler(file='./modules-standard/module_255_255_255_255.txt', data_enum=f['./modules-standard/module_255_255_255_255.txt'](), single=True)
 
     elif user_input == "19SV":
         validator(file='./modules-standard/module_255_255_255_255.txt', data_enum=f['./modules-standard/module_255_255_255_255.txt'])
