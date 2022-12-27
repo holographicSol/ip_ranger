@@ -163,7 +163,6 @@ def ip_ranges_compiler_pythonic(file=str, data_enum=[], loop=True):
     print('[FILE] ', file)
     if warn_user(file=file) is True:
         open(file, 'w').close()
-        pre_append = '[WRITING] '
         print('')
 
         with open(file, 'a') as fo:
@@ -184,7 +183,6 @@ def ip_ranges_compiler_pythonic(file=str, data_enum=[], loop=True):
             print("\n[TIME] %.2f s." % d)
 
         else:
-            data_enum_len = 1
             with open(file, 'a') as fo:
                 fo.write('    "' + str(data_enum) + '"]\n')
             fo.close()
