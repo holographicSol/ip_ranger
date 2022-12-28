@@ -2,6 +2,27 @@
 
 IPv4 Range Enumerator
 
+options:
+    return complete lists of IPv4 address range(s).
+    return a list of public/private IPv4 address ranges.
+    return a single (iterable) IPv4 address by index
+
+    Return a list of IPv4 addresses for a given range: (potentially extremely memory intensive, use only if needed).
+    Example: print(module_ip_power_ranger.compile_192_0_1_0_to_192_0_1_255)
+
+    Return a list of public IPv4 address ranges:
+    Example: print(module_ip_power_ranger.provide_public_ranges)
+
+    Iterate over n IPv4 addresses in x IPv4 address range:
+    Example:
+        public_ips = module_ip_power_ranger.provide_public_ranges()
+        range_0_start = public_ips[0][0]
+        range_0_end = public_ips[0][1]
+        index_0 = struct.unpack('>I', socket.inet_aton(range_0_start))[0]
+        index_1 = struct.unpack('>I', socket.inet_aton(range_0_end))[0]
+        for n in range(index_0, index_1):
+                x = module_ip_power_ranger.iter_ips(index=n)
+                n += 1
 """
 
 import os
