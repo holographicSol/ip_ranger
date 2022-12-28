@@ -30,9 +30,8 @@ options:
     Arbitrary ranging:
     Example:
         for n in range(0, 16777216):
-            x = module_ip_power_ranger.iter_ips(index=n)
-            if module_ip_power_ranger.is_ip_index_public() is False:
-                do something
+            if module_ip_power_ranger.is_ip_index_public(n) is False:
+                x = module_ip_power_ranger.iter_ips(index=n)
             n += 1
 
 """
