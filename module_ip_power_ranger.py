@@ -68,7 +68,7 @@ def compile_100_128_0_0_to_126_255_255_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 444,596,224
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -85,7 +85,7 @@ def compile_128_0_0_0_to_169_253_255_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 704,512,000
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -102,7 +102,7 @@ def compile_169_255_255_255_to_172_15_255_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 34,603,009
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -119,7 +119,7 @@ def compile_172_32_0_0_to_191_255_255_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 333447168
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -136,7 +136,7 @@ def compile_192_0_1_0_to_192_0_1_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 256
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -153,7 +153,7 @@ def compile_192_0_3_0_to_192_88_98_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 5,791,744
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -170,7 +170,7 @@ def compile_192_88_100_0_to_192_167_255_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 5,217,280
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -187,7 +187,7 @@ def compile_192_169_0_0_to_198_17_255_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 90,767,360
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -204,7 +204,7 @@ def compile_198_20_0_0_to_198_51_99_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 2,057,216
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -221,7 +221,7 @@ def compile_198_51_101_0_to_203_0_112_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 80,546,816
     Expected Size on Disk:
     """
     if mode == 'enumeration':
@@ -238,7 +238,7 @@ def compile_203_0_114_0_to_223_255_255_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses:
+    Expected number of addresses: 352,292,352
     Expected Size on Disk:
     """
     if mode == 'enumeration':
