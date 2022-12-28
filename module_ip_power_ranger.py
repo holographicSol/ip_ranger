@@ -52,6 +52,16 @@ def ips_pythonic_list_file_format(start, end):
     return _python_list
 
 
+def is_ip_public(index=int):
+    for _ in provide_public_ranges():
+        start = struct.unpack('>I', socket.inet_aton(_[0]))[0]
+        end = struct.unpack('>I', socket.inet_aton(_[1]))[0]
+        if index in range(start, end):
+            return True
+        else:
+            return False
+
+
 def provide_public_ranges():
     return [
         ['1.0.0.0', '9.255.255.255'],
