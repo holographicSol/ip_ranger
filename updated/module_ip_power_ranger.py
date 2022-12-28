@@ -42,8 +42,9 @@ import struct
 """
 this is close but not perfect. do not rely on this for now.
 trying to adhere to the IANA table.
-source: https://www.iana.org/assignments/ipv4-address-space/ipv4-address-space.xhtml
+source: https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml
 """
+
 
 def provide_public_ranges():
     return [
@@ -92,10 +93,6 @@ def provide_private_ranges():
         ["255.255.255.255", "255.255.255.255", 1]
     ]
 
-import ipaddress
-start = ipaddress.ip_network('198.18.0.0/15')
-print('    ["' + str(start[0]) + '", "' + str(start[-1]) + '"],' )
-
 
 def iter_ips(index=int):
     return socket.inet_ntoa(struct.pack('>I', index))
@@ -134,4 +131,3 @@ def is_ip_index_private(index=int):
             return True
         else:
             return False
-
