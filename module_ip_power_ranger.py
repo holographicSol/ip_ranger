@@ -15,6 +15,9 @@ options:
 
     Iterate over n IPv4 addresses in x IPv4 address range:
     Example:
+        import module_ip_power_ranger
+        import socket
+        import struct
         public_ips = module_ip_power_ranger.provide_public_ranges()
         range_0_start = public_ips[0][0]
         range_0_end = public_ips[0][1]
