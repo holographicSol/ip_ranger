@@ -9,7 +9,7 @@ import socket
 import struct
 
 
-def iter_ips(index):
+def iter_ips(index=int):
     return socket.inet_ntoa(struct.pack('>I', index))
 
 
