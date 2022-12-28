@@ -52,7 +52,11 @@ def ips_pythonic_list_file_format(start, end):
     return _python_list
 
 
-def is_ip_public(index=int):
+def is_ip_index_public(index=int):
+    """
+    Takes index integer as ip argument.
+    Example: print(module_ip_power_ranger.is_ip_public(16777216))
+    """
     for _ in provide_public_ranges():
         start = struct.unpack('>I', socket.inet_aton(_[0]))[0]
         end = struct.unpack('>I', socket.inet_aton(_[1]))[0]
