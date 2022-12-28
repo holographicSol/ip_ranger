@@ -36,4 +36,4 @@ for _ in address_blocks:
         print('        ["' + str(start[0]) + '", "' + str(start[-1]) + '"]')
     else:
         print('        ["' + str(start[0]) + '", "' + str(start[-1]) + '"],')
-print(']')
+print('    ]')
