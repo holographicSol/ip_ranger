@@ -119,7 +119,7 @@ def compile_172_32_0_0_to_191_255_255_255(mode='enumeration'):
     Description:
     Scope:
     Reserved:
-    Expected number of addresses: 333447168
+    Expected number of addresses: 333,447,168
     Expected Size on Disk:
     """
     if mode == 'enumeration':
