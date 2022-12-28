@@ -29,6 +29,11 @@ address_blocks = [
 ]
 
 print('def provide_private_ranges():')
+print('    [')
 for _ in address_blocks:
     start = ipaddress.ip_network(_)
-    print('    ["' + str(start[0]) + '", "' + str(start[-1]) + '"],' )
+    if _ == address_blocks[-1]:
+        print('        ["' + str(start[0]) + '", "' + str(start[-1]) + '"]')
+    else:
+        print('        ["' + str(start[0]) + '", "' + str(start[-1]) + '"],')
+print(']')
