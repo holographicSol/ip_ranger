@@ -9,6 +9,10 @@ import socket
 import struct
 
 
+def iter_ips(index):
+    return socket.inet_ntoa(struct.pack('>I', index))
+
+
 def ips(start, end):
     start = struct.unpack('>I', socket.inet_aton(start))[0]
     end = struct.unpack('>I', socket.inet_aton(end))[0]
