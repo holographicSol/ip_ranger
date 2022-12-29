@@ -31,7 +31,7 @@ def total_public_ipv4_addresses():
 
 
 def total_ipv4_addresses():
-    return 4294967296
+    return total_private_ipv4_addresses() + total_public_ipv4_addresses()
 
 
 def provide_public_ranges():
