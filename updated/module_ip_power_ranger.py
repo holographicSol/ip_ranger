@@ -124,8 +124,8 @@ def is_ip_index_public(ip):
 
 def is_ip_index_private(ip):
     """
-    is_ip_index_public(int)
-    is_ip_index_public(str)
+    is_ip_index_private(int)
+    is_ip_index_private(str)
     """
 
     if not str(ip).isdigit():
