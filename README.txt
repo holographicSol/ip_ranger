@@ -1,3 +1,3 @@
-Reserved IPv4 Address Ranges Module
+[IP_POWER_RANGER]
 
-A python module to enumerate reserved IPv4 address ranges.
+Iterate/Return/List through public/private/any IPv4 address range(s).
