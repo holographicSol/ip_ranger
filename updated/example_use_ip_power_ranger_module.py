@@ -11,7 +11,7 @@ import struct
 
 
 def seperator():
-    print('')
+    # print('')
     print('-'*50)
 
 
@@ -47,6 +47,9 @@ def example_iterate_over_ipv4_addresses_in_each_private_range():
     # todo ipv4 reserved must total 4,294,967,296 when added to public ipv4 address blocks
     """ step over each address in each address range specified
     4,294,967,296 total ipv4 addresses
+
+    reached r: 324274190
+
     """
     seperator()
     private_ip_rages = module_ip_power_ranger.provide_private_ranges()
@@ -73,6 +76,8 @@ def example_iterate_over_ipv4_addresses_in_each_public_range():
     # todo then run
     """ step over each address in each address range specified
     4,294,967,296 total
+
+    reached: 3970693120
     """
     seperator()
     public_ip_rages = module_ip_power_ranger.provide_public_ranges()
@@ -92,4 +97,4 @@ def example_iterate_over_ipv4_addresses_in_each_public_range():
     print('ip_i_total public:', ip_i_total)
 
 
-# example_iterate_over_ipv4_addresses_in_each_public_range()
+example_iterate_over_ipv4_addresses_in_each_public_range()
