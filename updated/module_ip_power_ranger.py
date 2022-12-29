@@ -107,8 +107,8 @@ def ips(start, end):
 
 def is_ip_index_public(ip):
     """
-    is_ip_index_public(int)
-    is_ip_index_public(str)
+    is_ip_index_public(int) Example: int(0)
+    is_ip_index_public(str) Example: str("0.0.0.0")
     """
 
     if not str(ip).isdigit():
@@ -124,8 +124,8 @@ def is_ip_index_public(ip):
 
 def is_ip_index_private(ip):
     """
-    is_ip_index_private(int)
-    is_ip_index_private(str)
+    is_ip_index_private(int) Example: int(0)
+    is_ip_index_private(str) Example: str("0.0.0.0")
     """
 
     if not str(ip).isdigit():
