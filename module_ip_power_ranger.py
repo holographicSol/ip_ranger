@@ -93,12 +93,22 @@ def provide_private_ranges():
 
 
 def iter_ips(index=int):
+    """ Return an address
+    int(index) refers to socket.inet_ntoa(struct.pack('>I', index))
+    """
     return socket.inet_ntoa(struct.pack('>I', index))
+
+
+def iter_ips_inverse(ip):
+    """ Return an index
+    str(ip) refers to struct.unpack('>I', socket.inet_aton(ip))[0]
+    """
+    return struct.unpack('>I', socket.inet_aton(ip))[0]
 
 
 def ips(start, end):
     """
-
+    Create a complete list of addresses in xrange (potentially memory intensive)
     """
     start = struct.unpack('>I', socket.inet_aton(start))[0]
     end = struct.unpack('>I', socket.inet_aton(end))[0]
@@ -107,8 +117,8 @@ def ips(start, end):
 
 def is_ip_index_public(ip):
     """
-    is_ip_index_public(int)
-    is_ip_index_public(str)
+    is_ip_index_public(int) Example: int(0)
+    is_ip_index_public(str) Example: str("0.0.0.0")
     """
 
     if not str(ip).isdigit():
@@ -124,8 +134,8 @@ def is_ip_index_public(ip):
 
 def is_ip_index_private(ip):
     """
-    is_ip_index_private(int)
-    is_ip_index_private(str)
+    is_ip_index_private(int) Example: int(0)
+    is_ip_index_private(str) Example: str("0.0.0.0")
     """
 
     if not str(ip).isdigit():
