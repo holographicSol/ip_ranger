@@ -105,27 +105,35 @@ def ips(start, end):
     return [socket.inet_ntoa(struct.pack('>I', i)) for i in range(start, end+1)]
 
 
-def is_ip_index_public(index=int):
+def is_ip_index_public(ip):
     """
-    Takes socket.inet_aton index integer as index=int
+    is_ip_index_public(int)
+    is_ip_index_public(str)
     """
+
+    if not str(ip).isdigit():
+        ip = int(struct.unpack('>I', socket.inet_aton(ip))[0])
     for _ in provide_public_ranges():
         start = struct.unpack('>I', socket.inet_aton(_[0]))[0]
         end = struct.unpack('>I', socket.inet_aton(_[1]))[0]
-        if index in range(start, end):
+        if ip in range(start, end):
             return True
         else:
             return False
 
 
-def is_ip_index_private(index=int):
+def is_ip_index_private(ip):
     """
-    Takes socket.inet_aton index integer as index=int
+    is_ip_index_public(int)
+    is_ip_index_public(str)
     """
+
+    if not str(ip).isdigit():
+        ip = int(struct.unpack('>I', socket.inet_aton(ip))[0])
     for _ in provide_private_ranges():
         start = struct.unpack('>I', socket.inet_aton(_[0]))[0]
         end = struct.unpack('>I', socket.inet_aton(_[1]))[0]
-        if index in range(start, end):
+        if ip in range(start, end):
             return True
         else:
             return False
