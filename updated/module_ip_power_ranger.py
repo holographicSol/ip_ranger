@@ -120,7 +120,6 @@ def is_ip_index_public(ip):
     is_ip_index_public(int) Example: int(0)
     is_ip_index_public(str) Example: str("0.0.0.0")
     """
-
     if not str(ip).isdigit():
         ip = int(struct.unpack('>I', socket.inet_aton(ip))[0])
     for _ in provide_public_ranges():
@@ -137,7 +136,6 @@ def is_ip_private(ip):
     is_ip_index_private(int) Example: int(0)
     is_ip_index_private(str) Example: str("0.0.0.0")
     """
-
     if not str(ip).isdigit():
         ip = int(struct.unpack('>I', socket.inet_aton(ip))[0])
     for _ in provide_private_ranges():
