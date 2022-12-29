@@ -22,7 +22,18 @@ def example_list_public_ipv4_ranges():
     print(public_ips)
 
 
-example_list_public_ipv4_ranges()
+# example_list_public_ipv4_ranges()
+
+
+def example_list_private_ipv4_ranges():
+    """ Return a specific list of IPv4 address ranges"""
+    seperator()
+    public_ips = module_ip_power_ranger.provide_private_ranges()
+    print('[PRIVATE IPv4 RANGES]')
+    print(public_ips)
+
+
+# example_list_private_ipv4_ranges()
 
 
 def example_iterate_over_ipv4_addresses_in_x_range():
@@ -41,7 +52,7 @@ def example_iterate_over_ipv4_addresses_in_x_range():
     print('ips:', i)
 
 
-example_iterate_over_ipv4_addresses_in_x_range()
+# example_iterate_over_ipv4_addresses_in_x_range()
 
 
 def example_iterate_over_ipv4_addresses_in_each_private_range():
@@ -67,7 +78,7 @@ def example_iterate_over_ipv4_addresses_in_each_private_range():
     print('ip_i_total private:', ip_i_total)
 
 
-example_iterate_over_ipv4_addresses_in_each_private_range()
+# example_iterate_over_ipv4_addresses_in_each_private_range()
 
 
 def example_iterate_over_ipv4_addresses_in_each_public_range():
@@ -91,7 +102,7 @@ def example_iterate_over_ipv4_addresses_in_each_public_range():
     print('ip_i_total public:', ip_i_total)
 
 
-example_iterate_over_ipv4_addresses_in_each_public_range()
+# example_iterate_over_ipv4_addresses_in_each_public_range()
 
 
 def example_iterate_over_ipv4_addresses_in_each_private_range_and_count_public():
@@ -117,7 +128,7 @@ def example_iterate_over_ipv4_addresses_in_each_private_range_and_count_public()
     print('total public IPv4 addresses found across every range scanned:', ip_true_in_public)
 
 
-example_iterate_over_ipv4_addresses_in_each_private_range_and_count_public()
+# example_iterate_over_ipv4_addresses_in_each_private_range_and_count_public()
 
 
 def example_iterate_over_ipv4_addresses_in_each_public_range_and_count_private():
@@ -142,4 +153,17 @@ def example_iterate_over_ipv4_addresses_in_each_public_range_and_count_private()
     print('total private IPv4 addresses found across every range scanned:', ip_true_in_private)
 
 
-example_iterate_over_ipv4_addresses_in_each_public_range_and_count_private()
+# example_iterate_over_ipv4_addresses_in_each_public_range_and_count_private()
+
+
+def example_totals():
+    seperator()
+    x = module_ip_power_ranger.total_private_ipv4_addresses()
+    y = module_ip_power_ranger.total_public_ipv4_addresses()
+    print('total_private_ipv4_addresses:', x)
+    print('total_public_ipv4_addresses:', y)
+    print('total:   ', x+y)
+    print('expected:', module_ip_power_ranger.total_ipv4_addresses())
+
+
+example_totals()
