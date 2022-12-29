@@ -100,7 +100,7 @@ def iter_ips(index=int):
 
 
 def iter_ips_inverse(ip):
-    """ Return an address
+    """ Return an index
     str(ip) refers to struct.unpack('>I', socket.inet_aton(ip))[0]
     """
     return struct.unpack('>I', socket.inet_aton(ip))[0]
@@ -132,7 +132,7 @@ def is_ip_index_public(ip):
             return False
 
 
-def is_ip_index_private(ip):
+def is_ip_private(ip):
     """
     is_ip_index_private(int) Example: int(0)
     is_ip_index_private(str) Example: str("0.0.0.0")
