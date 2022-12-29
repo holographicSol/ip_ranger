@@ -31,7 +31,7 @@ def total_public_ipv4_addresses():
 
 
 def total_ipv4_addresses():
-    return 4294967296
+    return total_private_ipv4_addresses() + total_public_ipv4_addresses()
 
 
 def provide_public_ranges():
@@ -116,15 +116,16 @@ def is_ip_index_public(ip):
     is_ip_index_public(int) Example: int(0)
     is_ip_index_public(str) Example: str("0.0.0.0")
     """
+    q = False
     if not str(ip).isdigit():
         ip = int(struct.unpack('>I', socket.inet_aton(ip))[0])
     for _ in provide_public_ranges():
         start = struct.unpack('>I', socket.inet_aton(_[0]))[0]
         end = struct.unpack('>I', socket.inet_aton(_[1]))[0]
         if ip in range(start, end):
-            return True
-        else:
-            return False
+            q = True
+            break
+    return q
 
 
 def is_ip_private(ip):
@@ -132,12 +133,15 @@ def is_ip_private(ip):
     is_ip_index_private(int) Example: int(0)
     is_ip_index_private(str) Example: str("0.0.0.0")
     """
+    q = False
     if not str(ip).isdigit():
         ip = int(struct.unpack('>I', socket.inet_aton(ip))[0])
     for _ in provide_private_ranges():
         start = struct.unpack('>I', socket.inet_aton(_[0]))[0]
         end = struct.unpack('>I', socket.inet_aton(_[1]))[0]
         if ip in range(start, end):
-            return True
-        else:
-            return False
+            q = True
+            break
+    return q
+
+# print(is_ip_index_public('1.0.0.0'))
