@@ -1,3 +1,12 @@
+""" Written by Benjamin Jack Cullen
+
+This program helps me find ranges by using source:
+source: https://www.iana.org/assignments/iana-ipv4-special-registry/iana-ipv4-special-registry.xhtml
+
+Then makes me a function I can copy into my module.
+
+"""
+
 import ipaddress
 
 # 3970693120(pub) + 324274190(res) = 4,294,967,310 - 14(below_overlap) = 4,294,967,296
